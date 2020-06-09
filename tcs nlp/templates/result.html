@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Customer Sentiment Analysis</title>
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+	<div class="contact1">
+		<div class="container-contact1">
+			{% if prediction == 1%}
+			<div class="contact1-pic js-tilt" data-tilt>
+				<img src="static/images/sady.jpg" alt="IMG">
+			</div>
+			<form class="contact1-form validate-form">
+				<span class="contact1-form-title" style="color:#57b846; font-family:'Arial Black'">
+					<b>CUSTOMER EMOTION</b>
+				</span>
+				<div>
+					<h2 style="color:red;font-family:'Lucida Console'">
+						Seems you are not satisfied.
+						We will surely report this to the Hotel.
+						We are extremely sorry
+					</h2>
+				</div>
+			</form>
+			{% elif prediction == 0%}
+			<div class="contact1-pic js-tilt" data-tilt>
+				<img src="static/images/happy.jpg" alt="IMG">
+			</div>
+			<form class="contact1-form validate-form">
+				<span class="contact1-form-title" style="color:#57b846; font-family:'Arial Black'">
+					<b>CUSTOMER EMOTION</b>
+				</span>
+				<div>
+					<h2 style="color:blue;font-family:'Lucida Console'">
+						You are satisfied.
+						Thank You for your time.
+					</h2>
+				</div>
+			</form>
+			{% endif %}
+		</div>
+	</div>
+</body>
+</html>
+<!-- {% if prediction == 1%}
+<h2 style="color:red;">Seems you are not satisfied. We will surely report this to the Hotel. We are extremely sorry</h2>
+{% elif prediction == 0%}
+<h2 style="color:blue;">You are satisfied thank you</h2>
+{% endif %} -->
